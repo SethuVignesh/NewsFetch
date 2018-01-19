@@ -8,9 +8,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.sethu.newsfetch.R;
-import com.sethu.newsfetch.data.Articles;
 import com.sethu.newsfetch.MainApplication;
+import com.sethu.newsfetch.R;
+import com.sethu.newsfetch.Utility.Util;
+import com.sethu.newsfetch.data.Articles;
 import com.sethu.newsfetch.domain.MainApplicationComponent;
 import com.sethu.newsfetch.domain.retrofit.ArticleApiInterface;
 import com.sethu.newsfetch.presentation.adapters.ArticleListAdapter;
@@ -41,12 +42,25 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        articleListAdapter = new ArticleListAdapter(userList, getApplicationContext());
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setAdapter(articleListAdapter);
-        getMainApplicationComponent();
-        getUsersInfo();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (Util.isNetworkAvailable(ListActivity.this)) {
+
+            articleListAdapter = new ArticleListAdapter(userList, getApplicationContext());
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setAdapter(articleListAdapter);
+            getMainApplicationComponent();
+            getUsersInfo();
+        } else {
+            emptyView.setVisibility(View.VISIBLE);
+            emptyView.setText("Internet not available,Please try again");
+        }
+
     }
 
     void getMainApplicationComponent() {
@@ -83,7 +97,12 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Articles>> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t);
-                emptyView.setVisibility(View.GONE);
+                try {
+                    emptyView.setVisibility(View.VISIBLE);
+                    emptyView.setText("Internet not available,Please try again");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
