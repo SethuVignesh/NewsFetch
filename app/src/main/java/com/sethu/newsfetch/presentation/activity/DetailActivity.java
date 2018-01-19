@@ -1,4 +1,4 @@
-package com.sethu.newsfetch.presentation;
+package com.sethu.newsfetch.presentation.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

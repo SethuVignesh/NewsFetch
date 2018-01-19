@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sethu.newsfetch.presentation.SplashActivity"
+    tools:context="com.sethu.newsfetch.presentation.activity.SplashActivity"
     tools:showIn="@layout/activity_splash">
 
     <ImageView
