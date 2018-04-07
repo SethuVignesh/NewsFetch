@@ -43,6 +43,7 @@ public class ListActivity extends AppCompatActivity implements DialogClickInterf
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
     }
 
     @Override

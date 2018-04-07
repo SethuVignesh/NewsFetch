@@ -8,7 +8,7 @@ import org.junit.Test;
 import static java.util.Arrays.asList;
 import static junit.framework.Assert.assertEquals;
 
-public class ExampleListAdapterTest {
+public class ListAdapterTest {
     private ProductListAdapter adapter;
 
 
