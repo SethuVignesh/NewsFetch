@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_dark"
-    tools:context="com.sethu.newsfetch.presentation.activity.SplashActivity">
+    android:id="@+id/idLayout"
+    tools:context="com.sethu.redmart.presentation.activity.SplashActivity">
 
 
     <include layout="@layout/content_splash" />

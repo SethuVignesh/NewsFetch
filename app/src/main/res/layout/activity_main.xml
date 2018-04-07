@@ -20,6 +20,6 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:visibility="visible"
-        android:text="@string/loading_news" />
+        android:text="@string/loading_items" />
 
 </RelativeLayout>

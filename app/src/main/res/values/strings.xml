@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">NewsFetch</string>
+    <string name="app_name">RedMart</string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="title_activity_splash">SplashActivity</string>
-    <string name="loading_news">Loading news</string>
+    <string name="loading_items">Loading Products....</string>
+    <string name="product_list">Products list</string>
 </resources>
